@@ -15,7 +15,7 @@ import time
 
 cImPath = 'content/simon_pegg.jpg'
 sImPath = 'style/the_scream.jpg'
-genImOutputPath = 'generated/screaming_simon_1.jpg'
+genImOutputPath = 'generated/screaming_simon_100.jpg'
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~##
 ## Image processing
@@ -142,7 +142,7 @@ P = get_feature_reps(x=cImArr, layer_names=[cLayerName], model=cModel)[0]
 As = get_feature_reps(x=sImArr, layer_names=sLayerNames, model=sModel)
 ws = np.ones(len(sLayerNames))/float(len(sLayerNames))
 
-iterations = 1 #20 #100 #600
+iterations = 100 #600
 x_val = gIm0.flatten()
 start = time.time()
 xopt, f_val, info= fmin_l_bfgs_b(calculate_loss, x_val, fprime=get_grad,
